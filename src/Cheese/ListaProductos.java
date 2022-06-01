@@ -43,6 +43,11 @@ public class ListaProductos {
         if (campo.replace(" ","") == "")  return true; else return false;
     }
 
+    /**
+     * Añade un producto a la lista.
+     * @param prod producto que queremos añadir
+     * @return En caso de que el producto ya esté en la lista, devuelve null, sino, devuelve el producto añadido
+     */
     public Producto addProducto(Producto prod) {
         
         if (listaP.containsKey(prod.getcode())) {
@@ -55,6 +60,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Elimina un producto de la lista.
+     * @param codigo código del product que vamos a eliminar.
+     * @return Devuelve el producto eliminado, en caso de que no exista producto con ese código, devuelve null.
+     */
     public Producto eliminarProducto(String codigo) { 
         
         Producto prod = buscarProducto(codigo);
@@ -66,6 +76,11 @@ public class ListaProductos {
         return prod;
     }
 
+    /**
+     * Busca un producto en la lista por el código.
+     * @param codigo codigo del producto a buscar.
+     * @return Devuelve null sino existe un producto con ese código o si existe, devuelve el encontrado.
+     */
     public Producto buscarProducto(String codigo) { 
         Producto prod = null;
         
@@ -77,12 +92,20 @@ public class ListaProductos {
         }
     }
 
+    /**
+     * Lista todos los productos que tenemos en la lista.
+     * @return Devuelve un arrayList de todos los productos de la lista.
+     */
     public ArrayList<Producto> getProductos() {
         ArrayList<Producto> prodsList = new ArrayList<>();
         prodsList.addAll(listaP.values());
         return prodsList;
     }
     
+    /**
+     * Devuelve el número de productos que tenemos
+     * @return número total de productos de la lista.
+     */
     public int totalProductos(){
             return this.getN();
     }
