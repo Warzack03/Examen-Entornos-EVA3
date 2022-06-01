@@ -49,7 +49,7 @@ public class ListaProductos {
      * @return En caso de que el producto ya esté en la lista, devuelve null, sino, devuelve el producto añadido
      */
     public Producto addProducto(Producto prod) {
-        
+        if(check_null(prod.getcode())) return null;
         if (listaP.containsKey(prod.getcode())) {
             // System.out.println("Producto con código duplicado");
             return null;
@@ -66,7 +66,7 @@ public class ListaProductos {
      * @return Devuelve el producto eliminado, en caso de que no exista producto con ese código, devuelve null.
      */
     public Producto eliminarProducto(String codigo) { 
-        
+        if(check_null(codigo)) return null;
         Producto prod = buscarProducto(codigo);
         if (prod != null) {
         listaP.remove(codigo);
@@ -82,6 +82,7 @@ public class ListaProductos {
      * @return Devuelve null sino existe un producto con ese código o si existe, devuelve el encontrado.
      */
     public Producto buscarProducto(String codigo) { 
+        if(check_null(codigo)) return null;
         Producto prod = null;
         
         if (!listaP.containsKey(codigo)) {
